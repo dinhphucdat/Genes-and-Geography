@@ -6,7 +6,7 @@ with the file handling of the software.
 pop_code_dict = {}
 where_the_sample_nested = 0
 where_the_pop_code_nested = 2
-with open("/Users/datdinh/Library/CloudStorage/OneDrive-UniversityofSt.Thomas/Personal_Project/bioinformatics/phase1_integrated_calls.20101123.ALL.panel") as f:
+with open("phase1_integrated_calls.20101123.ALL.panel") as f:
     for line in f:
         line_array = line.strip().split("\t")
         pop_code_dict[line_array[where_the_sample_nested]] = line_array[where_the_pop_code_nested]
