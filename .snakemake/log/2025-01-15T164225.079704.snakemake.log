@@ -1,0 +1,7 @@
+host: Dats-MacBook-Air.local
+Building DAG of jobs...
+MissingInputException in rule create_gds in file /Users/datdinh/Library/CloudStorage/OneDrive-UniversityofSt.Thomas/Personal_Project/bioinformatics/Snakefile, line 25:
+Missing input files for rule create_gds:
+    output: test.gds
+    affected files:
+        phase1_integrated_calls.20101123.ALL.vcf

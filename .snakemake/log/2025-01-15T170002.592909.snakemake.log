@@ -1,0 +1,41 @@
+host: Dats-MacBook-Air.local
+Building DAG of jobs...
+Using shell: /bin/bash
+Provided cores: 8
+Rules claiming more threads will be scaled down.
+Job stats:
+job            count
+-----------  -------
+all                1
+perform_pca        1
+total              2
+
+Select jobs to execute...
+Execute 1 jobs...
+
+[Wed Jan 15 17:00:02 2025]
+localrule perform_pca:
+    input: test.gds, pop.csv
+    output: Rplots.pdf
+    jobid: 1
+    reason: Missing output files: Rplots.pdf; Code has changed since last execution
+    resources: tmpdir=/var/folders/jp/jmgrbj5j0xngjhl7qz4j07yr0000gn/T
+
+[Wed Jan 15 17:00:29 2025]
+Error in rule perform_pca:
+    jobid: 1
+    input: test.gds, pop.csv
+    output: Rplots.pdf
+    shell:
+        
+        Rscript -e 'source("perform_pca_snp.r"); perform_pca("test.gds", "pop.csv")'
+        
+        (one of the commands exited with non-zero exit code; note that snakemake uses bash strict mode!)
+
+Removing output files of failed job perform_pca since they might be corrupted:
+Rplots.pdf
+Shutting down, this might take some time.
+Exiting because a job execution failed. Look above for error message
+Complete log: .snakemake/log/2025-01-15T170002.592909.snakemake.log
+WorkflowError:
+At least one job did not complete successfully.

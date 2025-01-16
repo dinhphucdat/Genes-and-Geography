@@ -1,0 +1,99 @@
+host: Dats-MacBook-Air.local
+Building DAG of jobs...
+shared_storage_local_copies: True
+remote_exec: False
+Using shell: /bin/bash
+Provided cores: 8
+Rules claiming more threads will be scaled down.
+Job stats:
+job            count
+-----------  -------
+all                1
+perform_pca        1
+total              2
+
+Resources before job selection: {'_cores': 8, '_nodes': 9223372036854775807, '_job_count': 9223372036854775807}
+Ready jobs: 1
+Select jobs to execute...
+Selecting jobs to run using greedy solver.
+Selected jobs: 1
+Resources after job selection: {'_cores': 7, '_nodes': 9223372036854775806, '_job_count': 9223372036854775807}
+Execute 1 jobs...
+
+[Wed Jan 15 16:52:20 2025]
+localrule perform_pca:
+    input: test.gds, pop.csv
+    output: Rplots.pdf
+    jobid: 1
+    reason: Missing output files: Rplots.pdf
+    resources: tmpdir=/var/folders/jp/jmgrbj5j0xngjhl7qz4j07yr0000gn/T
+
+Full Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/site-packages/snakemake/executors/local.py", line 423, in run_wrapper
+    run(
+  File "/Users/datdinh/Library/CloudStorage/OneDrive-UniversityofSt.Thomas/Personal_Project/bioinformatics/Snakefile", line 102, in __rule_perform_pca
+  File "/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/site-packages/snakemake/shell.py", line 357, in __new__
+    raise sp.CalledProcessError(retcode, cmd)
+subprocess.CalledProcessError: Command 'set -euo pipefail;  
+        Rscript -e 'source("perform_pca_snp.r"); perform_pca("test.gds", "pop.csv")'' returned non-zero exit status 1.
+
+Full Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/site-packages/snakemake/executors/local.py", line 423, in run_wrapper
+    run(
+  File "/Users/datdinh/Library/CloudStorage/OneDrive-UniversityofSt.Thomas/Personal_Project/bioinformatics/Snakefile", line 102, in __rule_perform_pca
+  File "/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/site-packages/snakemake/shell.py", line 357, in __new__
+    raise sp.CalledProcessError(retcode, cmd)
+subprocess.CalledProcessError: Command 'set -euo pipefail;  
+        Rscript -e 'source("perform_pca_snp.r"); perform_pca("test.gds", "pop.csv")'' returned non-zero exit status 1.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/site-packages/snakemake/executors/local.py", line 261, in _callback
+    raise ex
+  File "/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/concurrent/futures/thread.py", line 58, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/site-packages/snakemake/executors/local.py", line 247, in cached_or_run
+    run_func(*args)
+  File "/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/site-packages/snakemake/executors/local.py", line 459, in run_wrapper
+    raise RuleException(
+snakemake.exceptions.RuleException: CalledProcessError in file /Users/datdinh/Library/CloudStorage/OneDrive-UniversityofSt.Thomas/Personal_Project/bioinformatics/Snakefile, line 43:
+Command 'set -euo pipefail;  
+        Rscript -e 'source("perform_pca_snp.r"); perform_pca("test.gds", "pop.csv")'' returned non-zero exit status 1.
+
+RuleException:
+CalledProcessError in file /Users/datdinh/Library/CloudStorage/OneDrive-UniversityofSt.Thomas/Personal_Project/bioinformatics/Snakefile, line 43:
+Command 'set -euo pipefail;  
+        Rscript -e 'source("perform_pca_snp.r"); perform_pca("test.gds", "pop.csv")'' returned non-zero exit status 1.
+[Wed Jan 15 16:52:47 2025]
+Error in rule perform_pca:
+    jobid: 1
+    input: test.gds, pop.csv
+    output: Rplots.pdf
+    shell:
+        
+        Rscript -e 'source("perform_pca_snp.r"); perform_pca("test.gds", "pop.csv")'
+        
+        (one of the commands exited with non-zero exit code; note that snakemake uses bash strict mode!)
+
+Removing output files of failed job perform_pca since they might be corrupted:
+Rplots.pdf
+Shutting down, this might take some time.
+Exiting because a job execution failed. Look above for error message
+Complete log: .snakemake/log/2025-01-15T165220.950438.snakemake.log
+unlocking
+removing lock
+removing lock
+removed all locks
+Full Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/site-packages/snakemake/cli.py", line 2156, in args_to_api
+    dag_api.execute_workflow(
+  File "/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/site-packages/snakemake/api.py", line 597, in execute_workflow
+    workflow.execute(
+  File "/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/site-packages/snakemake/workflow.py", line 1306, in execute
+    raise WorkflowError("At least one job did not complete successfully.")
+snakemake_interface_common.exceptions.WorkflowError: At least one job did not complete successfully.
+
+WorkflowError:
+At least one job did not complete successfully.

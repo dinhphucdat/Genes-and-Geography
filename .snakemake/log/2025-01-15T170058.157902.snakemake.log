@@ -1,0 +1,40 @@
+host: Dats-MacBook-Air.local
+Building DAG of jobs...
+Using shell: /bin/bash
+Provided cores: 8
+Rules claiming more threads will be scaled down.
+Job stats:
+job            count
+-----------  -------
+all                1
+perform_pca        1
+total              2
+
+Select jobs to execute...
+Execute 1 jobs...
+
+[Wed Jan 15 17:00:58 2025]
+localrule perform_pca:
+    input: test.gds, pop.csv
+    output: Rplots.pdf
+    jobid: 1
+    reason: Missing output files: Rplots.pdf; Code has changed since last execution
+    resources: tmpdir=/var/folders/jp/jmgrbj5j0xngjhl7qz4j07yr0000gn/T
+
+[Wed Jan 15 17:01:24 2025]
+Finished job 1.
+1 of 2 steps (50%) done
+Select jobs to execute...
+Execute 1 jobs...
+
+[Wed Jan 15 17:01:24 2025]
+localrule all:
+    input: Rplots.pdf
+    jobid: 0
+    reason: Input files updated by another job: Rplots.pdf
+    resources: tmpdir=/var/folders/jp/jmgrbj5j0xngjhl7qz4j07yr0000gn/T
+
+[Wed Jan 15 17:01:24 2025]
+Finished job 0.
+2 of 2 steps (100%) done
+Complete log: .snakemake/log/2025-01-15T170058.157902.snakemake.log
